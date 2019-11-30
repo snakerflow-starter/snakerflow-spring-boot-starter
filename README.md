@@ -1,6 +1,7 @@
-# med-snakerflow-starter
-
+# snakerflow-spring-boot-starter
 >  本项目是基于开源SnakerFlow工作流引擎，将其和springboot进行整合成为一个能够快速工程应用的轻量级工作流引擎组件，适用于常见的业务审批流程。本着轻量、简单、灵巧理念设计，定位于简单集成，多环境支持。
+
+
 >  目前SnakerFlow已经没有人维护，本项目也是本着为大家提供一个可以一起讨论和改进SnakerFlow的平台，不会应用于任何商业项目和商业盈利。
 
 ## 背景
@@ -16,6 +17,10 @@
 - 支持starter方式快速引入
 - 支持一键初始化依赖SQL表
 - 封装和医疗场景融合的初始化流程模板，快速使用
+
+
+## Snaker Document
+http://snakerflow.cn:8081/book/index.html
 
 ## 快速使用
 - jar包依赖
