@@ -10,9 +10,8 @@
 
 ## 目录
 * [常用工作流对比](https://github.com/snakerflow-starter/snakerflow-spring-boot-starter/wiki/%E5%AE%A1%E6%89%B9%E6%B5%81%E8%B0%83%E7%A0%94)
-* [SnakerFlow流程引擎] (https://github.com/snakerflow-starter/snakerflow-spring-boot-starter/wiki/SnakerFlow%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8E)
-
-* [和springboot整合实现]（https://github.com/snakerflow-starter/snakerflow-spring-boot-starter/wiki/SnakerFlow%E5%92%8Cspringboot%E6%95%B4%E5%90%88）
+* [SnakerFlow流程引擎](https://github.com/snakerflow-starter/snakerflow-spring-boot-starter/wiki/SnakerFlow%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8E)
+* [和springboot整合实现](https://github.com/snakerflow-starter/snakerflow-spring-boot-starter/wiki/SnakerFlow%E5%92%8Cspringboot%E6%95%B4%E5%90%88)
 ## 项目目标
 - snakerflow和springboot无缝整合
 - 支持starter方式快速引入
