@@ -19,7 +19,6 @@
         <!-- resource : 相对路径查询资源的属性.
         相对于当前核心配置文件的位置开始查找映射文件.
         -->
-        <mapper resource="mapper/CityMapper.xml"/>
         <mapper resource="mapper/process.xml"/>
         <mapper resource="mapper/order.xml"/>
         <mapper resource="mapper/task.xml"/>
