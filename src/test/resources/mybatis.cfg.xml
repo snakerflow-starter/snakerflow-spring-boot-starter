@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!-- 解决数据库字段(带下划线字段)到javabean中属性驼峰原则命名的转换
+            问题举例：
+            数据库表字段名为contribute_id,生成的映射实体类对应字段为contributeId,
+            但是就是读取不到该字段值
+         -->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+    <typeAliases>
+        <package name="org.snaker.engine.entity"/>
+    </typeAliases>
+    <!-- 引用映射文件 -->
+    <mappers>
+        <!-- resource : 相对路径查询资源的属性.
+        相对于当前核心配置文件的位置开始查找映射文件.
+        -->
+        <mapper resource="mapper/process.xml"/>
+        <mapper resource="mapper/order.xml"/>
+        <mapper resource="mapper/task.xml"/>
+        <mapper resource="mapper/task-actor.xml"/>
+        <mapper resource="mapper/hist-order.xml"/>
+        <mapper resource="mapper/hist-task.xml"/>
+        <mapper resource="mapper/hist-task-actor.xml"/>
+        <mapper resource="mapper/hist-task-actor.xml"/>
+    </mappers>
+</configuration>
