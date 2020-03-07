@@ -85,28 +85,6 @@ create table wf_hist_task_actor (
     actor_Id          VARCHAR(100) not null comment '参与者ID'
 )comment='历史任务参与者表';
 
-create table wf_surrogate (
-    id                VARCHAR(100) PRIMARY KEY NOT NULL COMMENT '主键ID',
-    process_Name       VARCHAR(100) COMMENT '流程名称',
-    operator          VARCHAR(100) COMMENT '授权人',
-    surrogate         VARCHAR(100) COMMENT '代理人',
-    odate             VARCHAR(64) COMMENT '操作时间',
-    sdate             VARCHAR(64) COMMENT '开始时间',
-    edate             VARCHAR(64) COMMENT '结束时间',
-    state             TINYINT(1) COMMENT '状态'
-)COMMENT='委托代理表';
-create index IDX_SURROGATE_OPERATOR on wf_surrogate (operator);
-
-create table wf_cc_order (
-    order_Id        varchar(32) COMMENT '流程实例ID',
-    actor_Id        varchar(100) COMMENT '参与者ID',
-    status          TINYINT(1)  COMMENT '状态',
-    creator         varchar(50) COMMENT '发起人',
-    create_Time      varchar(50) comment '创建时间',
-    finish_Time      varchar(50) comment '完成时间'
-)comment='抄送实例表';
-create index IDX_CCORDER_ORDER on wf_cc_order (order_Id);
-
 create index IDX_PROCESS_NAME on wf_process (name);
 create index IDX_ORDER_PROCESSID on wf_order (process_Id);
 create index IDX_ORDER_NO on wf_order (order_No);
@@ -121,27 +99,14 @@ create index IDX_HIST_TASK_TASKNAME on wf_hist_task (task_Name);
 create index IDX_HIST_TASK_PARENTTASK on wf_hist_task (parent_Task_Id);
 create index IDX_HIST_TASKACTOR_TASK on wf_hist_task_actor (task_Id);
 
-alter table wf_task_actor
-  add constraint FK_TASK_ACTOR_TASKID foreign key (task_Id)
-  references wf_task (id);
-alter table wf_task
-  add constraint FK_TASK_ORDERID foreign key (order_Id)
-  references wf_order (id);
-alter table wf_order
-  add constraint FK_ORDER_PARENTID foreign key (parent_Id)
-  references wf_order (id);
-alter table wf_order
-  add constraint FK_ORDER_PROCESSID foreign key (process_Id)
-  references wf_process (id);
-alter table wf_hist_task_actor
-  add constraint FK_HIST_TASKACTOR foreign key (task_Id)
-  references wf_hist_task (id);
-alter table wf_hist_task
-  add constraint FK_HIST_TASK_ORDERID foreign key (order_Id)
-  references wf_hist_order (id);
-alter table wf_hist_order
-  add constraint FK_HIST_ORDER_PARENTID foreign key (parent_Id)
-  references wf_hist_order (id);
-alter table wf_hist_order
-  add constraint FK_HIST_ORDER_PROCESSID foreign key (process_Id)
-  references wf_process (id);
+/**
+测试表
+ */
+CREATE TABLE `city` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `province_id` int(11) NOT NULL,
+  `city_name` varchar(50) DEFAULT NULL,
+  `description` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 ;
+
