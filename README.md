@@ -29,8 +29,7 @@ QQ群：979147234
 
 邮箱：zhaoguoqing360@126.com
 
-![8P91zD.png](https://s2.ax1x.com/2020/03/10/8P91zD.png)
-
+![8P9yLj.png](https://s2.ax1x.com/2020/03/10/8P9yLj.png)
 
 ## 快速使用
 - jar包依赖
