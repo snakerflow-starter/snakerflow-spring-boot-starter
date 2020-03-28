@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ImportResource;
 import javax.sql.DataSource;
 
 /**
- * 配置类
+ * 配置初始化
  * @author zhaoguoqing
  */
 

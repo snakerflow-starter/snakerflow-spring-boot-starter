@@ -12,26 +12,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.snakerflow.plugin.starter.example.controller;
+package com.github.snakerflow.plugin.starter.example.service;
 
-import org.apache.commons.lang.StringUtils;
 import org.snaker.engine.SnakerEngine;
-import org.snaker.engine.access.Page;
 import org.snaker.engine.access.QueryFilter;
+import org.snaker.engine.entity.Order;
 import org.snaker.engine.entity.Process;
-import org.snaker.engine.entity.*;
-import org.snaker.engine.helper.StreamHelper;
-import org.snaker.engine.model.TaskModel.TaskType;
+import org.snaker.engine.entity.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
+ * SnakerEngineFacets封装snakerflow基本操作，可以直接使用
+ *
  * @author zhaoguoqing
  * @since 0.1
  */
@@ -40,23 +38,57 @@ public class SnakerEngineFacets {
     @Autowired
     private SnakerEngine engine;
 
-    public void initFlows() {
-        //engine.process().redeploy("6d71000339064b44a4cdec4585dac0bc",StreamHelper.getStreamFromClasspath("flow/process_starry.snaker"));
-        //engine.process().redeploy("6d71000339064b44a4cdec4585dac0bc",StreamHelper.getStreamFromClasspath("flow/process_hengrui.snaker"));
-        //engine.process().deploy(StreamHelper.getStreamFromClasspath("flows/leave.snaker"));
-        ClassLoader classLoader = Thread.currentThread()
-                .getContextClassLoader();
+    /**
+     * 初始化状态机流程
+     *
+     * @return 流程主键
+     */
+    public String initFlows() {
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         InputStream stream = classLoader.getResourceAsStream("flows/leave.snaker");
-        engine.process().deploy(stream);
+        String deploy = engine.process().deploy(stream);
+        return deploy;
     }
 
+    /**
+     * 获得所有有效流程
+     *
+     * @return List<Process>
+     */
+    public List<Process> getAllProcess() {
+        QueryFilter filter = new QueryFilter();
+        return engine.process().getProcesss(filter);
+    }
+
+    /**
+     * 通过orderId 获得流程
+     *
+     * @param orderId 流程实例Id
+     * @return List<Process>
+     */
+    public List<Process> getProcessByOrderId(String orderId) {
+        QueryFilter filter = new QueryFilter();
+        filter.setOrderId(orderId);
+        return engine.process().getProcesss(filter);
+    }
+
+    /**
+     * 获得执行引擎
+     *
+     * @return SnakerEngine
+     */
     public SnakerEngine getEngine() {
         return engine;
     }
 
+    /**
+     * 获得所有流程的名字
+     *
+     * @return List<String>
+     */
     public List<String> getAllProcessNames() {
         List<Process> list = engine.process().getProcesss(new QueryFilter());
-        List<String> names = new ArrayList<String>();
+        List<String> names = new ArrayList<>();
         for (Process entity : list) {
             if (names.contains(entity.getName())) {
                 continue;
@@ -67,14 +99,39 @@ public class SnakerEngineFacets {
         return names;
     }
 
+    /**
+     * 通过processId发起一个流程实例
+     *
+     * @param processId 流程ID
+     * @param operator  操作人
+     * @param args      自定义参数
+     * @return Order流程实例
+     */
     public Order startInstanceById(String processId, String operator, Map<String, Object> args) {
         return engine.startInstanceById(processId, operator, args);
     }
 
+    /**
+     * 通过process name发起一个流程实例
+     *
+     * @param name     流程 name
+     * @param operator 操作人
+     * @param args     自定义参数
+     * @return Order流程实例
+     */
     public Order startInstanceByName(String name, Integer version, String operator, Map<String, Object> args) {
         return engine.startInstanceByName(name, version, operator, args);
     }
 
+    /**
+     * 执行流程实例
+     *
+     * @param name     流程 name
+     * @param version  版本
+     * @param operator 操作人
+     * @param args     自定义参数
+     * @return Order流程实例
+     */
     public Order startAndExecute(String name, Integer version, String operator, Map<String, Object> args) {
         Order order = engine.startInstanceByName(name, version, operator, args);
         List<Task> tasks = engine.query().getActiveTasks(new QueryFilter().setOrderId(order.getId()));
@@ -86,6 +143,14 @@ public class SnakerEngineFacets {
         return order;
     }
 
+    /**
+     * 执行流程实例
+     *
+     * @param processId 流程Id
+     * @param operator  操作人
+     * @param args      自定义参数
+     * @return Order流程实例
+     */
     public Order startAndExecute(String processId, String operator, Map<String, Object> args) {
         Order order = engine.startInstanceById(processId, operator, args);
         List<Task> tasks = engine.query().getActiveTasks(new QueryFilter().setOrderId(order.getId()));
@@ -97,73 +162,38 @@ public class SnakerEngineFacets {
         return order;
     }
 
+    /**
+     * 通过taskId执行
+     *
+     * @param taskId   任务Id
+     * @param operator 操作人
+     * @param args     自定义参数
+     * @return List<Task>
+     */
     public List<Task> execute(String taskId, String operator, Map<String, Object> args) {
         return engine.executeTask(taskId, operator, args);
     }
 
+    /**
+     * 流程跳转
+     *
+     * @param taskId   任务Id
+     * @param operator 操作人
+     * @param args     自定义参数
+     * @param nodeName 跳转到的节点名称
+     * @return List<Task>
+     */
     public List<Task> executeAndJump(String taskId, String operator, Map<String, Object> args, String nodeName) {
         return engine.executeAndJumpTask(taskId, operator, args, nodeName);
     }
 
-    public List<Task> transferMajor(String taskId, String operator, String... actors) {
-        List<Task> tasks = engine.task().createNewTask(taskId, TaskType.Major.ordinal(), actors);
-        engine.task().complete(taskId, operator);
-        return tasks;
-    }
-
-    public List<Task> transferAidant(String taskId, String operator, String... actors) {
-        List<Task> tasks = engine.task().createNewTask(taskId, TaskType.Aidant.ordinal(), actors);
-        engine.task().complete(taskId, operator);
-        return tasks;
-    }
-
-    public Map<String, Object> flowData(String orderId, String taskName) {
-        Map<String, Object> data = new HashMap<String, Object>();
-        if (StringUtils.isNotEmpty(orderId) && StringUtils.isNotEmpty(taskName)) {
-            List<HistoryTask> histTasks = engine.query()
-                    .getHistoryTasks(
-                            new QueryFilter().setOrderId(orderId).setName(
-                                    taskName));
-            List<Map<String, Object>> vars = new ArrayList<Map<String, Object>>();
-            for (HistoryTask hist : histTasks) {
-                vars.add(hist.getVariableMap());
-            }
-            data.put("vars", vars);
-            data.put("histTasks", histTasks);
-        }
-        return data;
-    }
-
-    public void addSurrogate(Surrogate entity) {
-        if (entity.getState() == null) {
-            entity.setState(1);
-        }
-        engine.manager().saveOrUpdate(entity);
-    }
-
-    public void deleteSurrogate(String id) {
-        engine.manager().deleteSurrogate(id);
-    }
-
-    public Surrogate getSurrogate(String id) {
-        return engine.manager().getSurrogate(id);
-    }
-
-    public List<Surrogate> searchSurrogate(Page<Surrogate> page, QueryFilter filter) {
-        return engine.manager().getSurrogate(page, filter);
-    }
-
+    /**
+     * 通过orderId获取对应的流程task
+     *
+     * @param orderId 流程实例Id
+     * @return List<Task>
+     */
     public List<Task> getTasks(String orderId) {
         return engine.query().getActiveTasks(new QueryFilter().setOrderId(orderId));
-    }
-
-    public List<Process> getProcess(String orderId) {
-        QueryFilter filter = new QueryFilter();
-        filter.setOrderId(orderId);
-        return engine.process().getProcesss(new QueryFilter());
-    }
-    public List<Process> getProcessList() {
-        QueryFilter filter = new QueryFilter();
-        return engine.process().getProcesss(new QueryFilter());
     }
 }
