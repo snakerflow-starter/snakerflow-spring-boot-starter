@@ -29,8 +29,6 @@ QQ群：979147234
 
 邮箱：zhaoguoqing360@126.com
 
-![8P9yLj.png](https://s2.ax1x.com/2020/03/10/8P9yLj.png)
-
 ## 快速使用
 - jar包依赖
 - 目前还没哟配置中央仓库，可以直接在pom中替换自己的私有仓库，打包。（TODO）
