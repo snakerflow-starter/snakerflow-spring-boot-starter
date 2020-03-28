@@ -13,11 +13,11 @@
 ## 快速使用
 - starter依赖
 ```xml
-    <dependency>
-        <groupId>com.yitutech</groupId>
-        <artifactId>med-snakerflow-starter</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-    </dependency>
+<dependency>
+  <groupId>com.github.snakerflow-starter</groupId>
+  <artifactId>snakerflow-spring-boot-starter</artifactId>
+  <version>1.0.1</version>
+</dependency>
 ```
 - 初始化依赖数据库表mysql schema-mysql.sql
 - 初始化依赖数据库表H2 schema-H2.sql
