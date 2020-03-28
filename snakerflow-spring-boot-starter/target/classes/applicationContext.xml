@@ -33,7 +33,7 @@
     </bean>
     <bean id="processService" class="org.snaker.engine.core.ProcessService">
         <property name="access" ref="dbAccess"/>
-        <property name="cacheManager" ref="cacheManager"/>
+        <property name="cacheManager" ref="snakerCacheManager"/>
     </bean>
     <bean id="orderService" class="org.snaker.engine.core.OrderService">
         <property name="access" ref="dbAccess"/>
@@ -47,7 +47,7 @@
     <bean id="queryService" class="org.snaker.engine.core.QueryService">
         <property name="access" ref="dbAccess"/>
     </bean>
-    <bean id="cacheManager" class="org.snaker.engine.cache.memory.MemoryCacheManager"/>
+    <bean id="snakerCacheManager" class="org.snaker.engine.cache.memory.MemoryCacheManager"/>
     <bean class="org.snaker.engine.impl.LogInterceptor"/>
     <bean class="org.snaker.engine.spring.SpelExpression"/>
 

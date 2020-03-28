@@ -6,7 +6,7 @@
 
     <groupId>com.github.snakerflow-starter</groupId>
     <artifactId>snakerflow-spring-boot-starter</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.1</version>
     <name>snakerflow-spring-boot-starter</name>
     <description>snakerflow plugins</description>
     <url>http://www.example.com</url>
@@ -155,7 +155,23 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.9.1</version>
+                        <configuration>
+                            <encoding>UTF-8</encoding>
+                            <charset>UTF-8</charset>
+                            <docencoding>UTF-8</docencoding>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <additionalJOption>-Xdoclint:none</additionalJOption>
+                                </configuration>
+                            </execution>
+                        </executions>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
