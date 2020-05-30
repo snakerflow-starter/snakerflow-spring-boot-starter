@@ -45,7 +45,6 @@ public List<Task> execute(String taskId, String operator, Map<String, Object> ar
     return engine.executeTask(taskId, operator, args);
 }
 ```
-
 ## SnakerFlow流程引擎
 > Snaker是一个基于Java的轻量级工作流引擎，适用于企业应用中常见的业务流程。本着轻量、简单、灵巧理念设计，定位于简单集成，多环境支持。
 
@@ -66,7 +65,6 @@ snaker-core.jar大小208K，代码行数约7000行，强大的扩展支持，不
 <transition g="" name="transition1" offset="0,0" to="apply"/>
 </start>
 <end displayName="end1" layout="570,124,-1,-1" name="end1"/>
-<task assignee="apply.operator" displayName="请假申请" form="/flow/leave/apply" layout="117,122,-1,-1" name="apply" performType="ANY">
 <transition g="" name="transition2" offset="0,0" to="approveDept"/>
 </task>
 <task assignee="approveDept.operator" displayName="部门经理审批" form="/flow/leave/approveDept" layout="272,122,-1,-1" name="approveDept" performType="ANY">
