@@ -1,17 +1,26 @@
 # snakerflow-spring-boot-starter
->  本项目是基于开源SnakerFlow工作流引擎，将其和springboot进行整合成为一个能够快速工程应用的轻量级工作流引擎组件，适用于常见的业务审批流程和状态机流转。本着轻量、简单、灵巧理念设计，定位于简单集成，多环境支持。
+>  本项目是基于开源SnakerFlow工作流引擎，将其和springboot进行整合成为一个能够快速工程应用的轻量级工作流引擎组件，本着轻量、简单、灵巧理念设计，定位于简单集成，多环境支持。
 
->  使用定位：状态机流转相对复杂、审批涉及多角色、流程模板需要灵活定义，本项目也是本着为大家提供一个可以一起讨论和改进SnakerFlow的平台，不会应用于任何商业项目和商业盈利。
+>  使用定位：适用于常见的业务审批流程和状态机流转，状态机流转相对复杂、审批涉及多角色、流程模板需要灵活定义。
 
-## 核心功能
+>  本项目也是本着为大家提供一个可以一起讨论和改进SnakerFlow的平台，不会应用于任何商业项目和商业盈利, 交流群QQ：979147234
+
+## 核心支持
 - snakerflow和springboot无缝整合
 - 支持starter方式一键引入
 - 支持一键初始化依赖SQL表
 - ORM支持mybatis和mybatis-plus
-- 兼容redis cacheManager 冲突
+- 兼容redis cacheManager冲突
+- 目前支持H2、Mysql示例
 
-## 快速使用
-- starter依赖
+## start
+0. 快速体验
+- git clone git@github.com:snakerflow-starter/snakerflow-spring-boot-starter.git
+- 运行 snakerflow-spring-boot-starter-example 中的Main
+- 访问 http://localhost:8080/getProcessList 初始化流程，返回process
+- 访问 http://localhost:8080/start 初始化流程实例，返回order
+
+1. 快速使用，首先引入starter依赖
 ```xml
 <dependency>
   <groupId>com.github.snakerflow-starter</groupId>
@@ -19,8 +28,9 @@
   <version>1.0.1</version>
 </dependency>
 ```
-- 初始化依赖数据库表mysql schema-mysql.sql
-- 初始化依赖数据库表H2 schema-H2.sql
+2. 初始化依赖数据库表
+- [schema-mysql.sql](https://github.com/snakerflow-starter/snakerflow-spring-boot-starter/blob/master/snakerflow-spring-boot-starter-example/src/main/resources/db/schema-mysql.sql)
+- [schema-H2.sql](https://github.com/snakerflow-starter/snakerflow-spring-boot-starter/blob/master/snakerflow-spring-boot-starter-example/src/main/resources/db/schema-h2.sql)
 
 ## 版本更新
 
@@ -29,6 +39,7 @@
 - 2020.3.8 完成starter包的完全抽取，并增加测试工程，一目了然
 - 2020.3.16 发布第一版starter 1.0.0到maven中央仓库
 - 2020.3.16 发布1.0.1 兼容Redis cacheManager 冲突
+- 2020.05.31 去掉无用依赖，快速使用体验
 
 ## 使用示例
 - 可以使用参考项目实例中的 SnakerEngineFacets
@@ -79,6 +90,7 @@ snaker-core.jar大小208K，代码行数约7000行，强大的扩展支持，不
 </task>
 </process>
 ```
+- snaker的流程设计可以使用snaker-web或者使用eclipse插件设计，插件在群聊里面。
 
 ## 数据库ER模型
 ![njAfBj.png](https://s2.ax1x.com/2019/09/20/njAfBj.png)
