@@ -27,10 +27,11 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.1.7.RELEASE</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.snakerflow-starter/snakerflow-spring-boot-starter -->
         <dependency>
             <groupId>com.github.snakerflow-starter</groupId>
             <artifactId>snakerflow-spring-boot-starter</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.3-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -73,6 +74,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.190</version>
         </dependency>
     </dependencies>
 

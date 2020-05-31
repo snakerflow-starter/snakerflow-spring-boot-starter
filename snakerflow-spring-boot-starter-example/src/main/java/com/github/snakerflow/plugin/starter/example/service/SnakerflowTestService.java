@@ -3,10 +3,12 @@ package com.github.snakerflow.plugin.starter.example.service;
 import com.alibaba.fastjson.JSON;
 import com.github.snakerflow.plugin.starter.example.dao.CityMapper;
 import com.github.snakerflow.plugin.starter.example.entity.CityDO;
+import org.snaker.engine.entity.Order;
 import org.snaker.engine.entity.Process;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
@@ -60,5 +62,20 @@ public class SnakerflowTestService {
         snakerEngineFacets.initFlows();
         List<Process> allProcess = snakerEngineFacets.getAllProcess();
         return JSON.toJSONString(allProcess);
+    }
+
+    /**
+     * 主要用于测试snakerflow是否正常加载
+     *
+     * @return String
+     */
+    @Transactional
+    public String start() {
+        List<Process> allProcess = snakerEngineFacets.getAllProcess();
+        if (CollectionUtils.isEmpty(allProcess)) {
+            return "请先初始化process，http://localhost:8080/getProcessList";
+        }
+        Order order = snakerEngineFacets.startInstanceById(allProcess.get(0).getId(), "zhaoguoqing", null);
+        return JSON.toJSONString(order);
     }
 }

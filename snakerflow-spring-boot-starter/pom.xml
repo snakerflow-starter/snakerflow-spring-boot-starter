@@ -6,7 +6,7 @@
 
     <groupId>com.github.snakerflow-starter</groupId>
     <artifactId>snakerflow-spring-boot-starter</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.3-SNAPSHOT</version>
     <name>snakerflow-spring-boot-starter</name>
     <description>snakerflow plugins</description>
     <url>http://www.example.com</url>
@@ -16,9 +16,7 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
-        <lombok.version>1.18.18</lombok.version>
         <spring.boot.version>2.1.7.RELEASE</spring.boot.version>
-        <jjwt.version>0.10.5</jjwt.version>
     </properties>
 
     <dependencies>
@@ -36,32 +34,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <version>${spring.boot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>28.0-jre</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.9</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.snakerflow</groupId>
-            <artifactId>snaker-core</artifactId>
-            <version>2.4.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.github.snakerflow</groupId>
@@ -87,12 +59,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.1.0</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.3.0</version>
@@ -101,12 +67,6 @@
             <groupId>commons-dbutils</groupId>
             <artifactId>commons-dbutils</artifactId>
             <version>1.6</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-            <version>1.4</version>
-            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
