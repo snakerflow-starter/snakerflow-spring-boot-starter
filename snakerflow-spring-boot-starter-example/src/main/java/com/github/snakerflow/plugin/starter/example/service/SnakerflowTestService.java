@@ -1,7 +1,7 @@
 package com.github.snakerflow.plugin.starter.example.service;
 
 import com.alibaba.fastjson.JSON;
-import com.github.snakerflow.plugin.starter.example.dao.CityMapper;
+import com.github.snakerflow.plugin.starter.example.dao.CityDAO;
 import com.github.snakerflow.plugin.starter.example.entity.CityDO;
 import org.snaker.engine.entity.Order;
 import org.snaker.engine.entity.Process;
@@ -22,7 +22,7 @@ import java.util.List;
 @Service
 public class SnakerflowTestService {
     @Autowired
-    private CityMapper cityMapper;
+    private CityDAO cityDAO;
     @Autowired
     private SnakerEngineFacets snakerEngineFacets;
 
@@ -47,8 +47,8 @@ public class SnakerflowTestService {
         cityDO.setCityName("杭州");
         cityDO.setDescription("杭州西湖很美");
         cityDO.setProvinceId(1L);
-        cityMapper.insert(cityDO);
-        cityDO = cityMapper.selectById(1L);
+        cityDAO.insert(cityDO);
+        cityDO = cityDAO.getById(1L);
         return JSON.toJSONString(cityDO);
     }
 
