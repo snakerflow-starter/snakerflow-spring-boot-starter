@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: test
 
 server:
   port: 8080
