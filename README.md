@@ -25,7 +25,7 @@
 <dependency>
   <groupId>com.github.snakerflow-starter</groupId>
   <artifactId>snakerflow-spring-boot-starter</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.3</version>
 </dependency>
 ```
 2. 初始化依赖数据库表
