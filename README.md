@@ -116,5 +116,3 @@ QQ群：979147234
 
 邮箱：zhaoguoqing360@126.com
 ## 点个赞
-
-<img src="https://s1.ax1x.com/2020/06/15/NpzCRO.png"  style="zoom: 50%;" />
