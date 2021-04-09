@@ -6,7 +6,7 @@
 
     <groupId>com.github.snakerflow-starter</groupId>
     <artifactId>snakerflow-spring-boot-starter</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>snakerflow-spring-boot-starter</name>
     <description>snakerflow plugins</description>
     <url>http://www.example.com</url>
