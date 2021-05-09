@@ -10,10 +10,6 @@ spring:
     password:
     schema: classpath:db/schema-H2.sql
     name: test
-    type: com.alibaba.druid.pool.DruidDataSource
-    druid:
-      min-idle: 2
-      initial-size: 5
-      max-active: 10
-      max-wait: 5000
-      validation-query: select 1
+
+mybatis-plus:
+  type-aliases-package: org.snaker.engine.entity

@@ -20,24 +20,52 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
-        <spring.boot.version>2.1.7.RELEASE</spring.boot.version>
+        <spring.boot.version>2.3.5.RELEASE</spring.boot.version>
+        <mysql.version>8.0.17</mysql.version>
+        <mybatis.plus.version>3.4.0</mybatis.plus.version>
+        <snaker.spring.version>2.4.0</snaker.spring.version>
+        <commons.dbutils.version>1.6</commons.dbutils.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
-    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.snakerflow</groupId>
+                <artifactId>snaker-spring</artifactId>
+                <version>${snaker.spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.snakerflow</groupId>
+                <artifactId>snaker-mybatis</artifactId>
+                <version>${snaker.spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.snakerflow</groupId>
+                <artifactId>snaker-core</artifactId>
+                <version>${snaker.spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-dbutils</groupId>
+                <artifactId>commons-dbutils</artifactId>
+                <version>${commons.dbutils.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

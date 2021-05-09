@@ -7,3 +7,5 @@ spring:
       username: root
       password: rootroot
       driver-class-name: com.mysql.jdbc.Driver
+mybatis-plus:
+  type-aliases-package: org.snaker.engine.entity
