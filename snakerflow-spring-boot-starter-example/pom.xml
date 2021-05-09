@@ -31,7 +31,7 @@
         <dependency>
             <groupId>com.github.snakerflow-starter</groupId>
             <artifactId>snakerflow-spring-boot-starter</artifactId>
-            <version>1.0.4-SNAPSHOT</version>
+            <version>1.0.4</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

@@ -11,7 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>snakerflow-spring-boot-starter</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.4</version>
     <name>snakerflow-spring-boot-starter</name>
     <description>snakerflow plugins</description>
     <url>http://www.example.com</url>

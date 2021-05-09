@@ -9,7 +9,7 @@
 - snakerflow和springboot无缝整合
 - 支持starter方式一键引入
 - 支持一键初始化依赖SQL表
-- ORM支持mybatis和mybatis-plus
+- ORM支持和mybatis-plus无缝整合
 - 兼容redis cacheManager冲突
 - 目前支持H2、Mysql示例
 
@@ -25,8 +25,13 @@
 <dependency>
   <groupId>com.github.snakerflow-starter</groupId>
   <artifactId>snakerflow-spring-boot-starter</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
 </dependency>
+```
+新增配置项
+```
+mybatis-plus:
+  type-aliases-package: org.snaker.engine.entity
 ```
 2. 初始化依赖数据库表
 - [schema-mysql.sql](https://github.com/snakerflow-starter/snakerflow-spring-boot-starter/blob/master/snakerflow-spring-boot-starter-example/src/main/resources/db/schema-mysql.sql)
@@ -40,6 +45,7 @@
 - 2020.3.16 发布第一版starter 1.0.0到maven中央仓库
 - 2020.3.16 发布1.0.1 兼容Redis cacheManager 冲突
 - 2020.05.31 去掉无用依赖，快速使用体验
+- 2021.05.09 配置改成config文件形式，解决Mybaits-puls分页问题
 
 ## 使用示例
 - 可以使用参考项目实例中的 SnakerEngineFacets
@@ -56,7 +62,7 @@ public List<Task> execute(String taskId, String operator, Map<String, Object> ar
     return engine.executeTask(taskId, operator, args);
 }
 ```
-## SnakerFlow流程引擎
+## SnakerFlow流程引擎简介
 > Snaker是一个基于Java的轻量级工作流引擎，适用于企业应用中常见的业务流程。本着轻量、简单、灵巧理念设计，定位于简单集成，多环境支持。
 
 > 轻量:
