@@ -4,9 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.snakerflow-starter</groupId>
+    <parent>
+        <groupId>com.github.snakerflow-starter</groupId>
+        <artifactId>snakerflow-spring-boot-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
     <artifactId>snakerflow-spring-boot-starter</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.4-SNAPSHOT</version>
     <name>snakerflow-spring-boot-starter</name>
     <description>snakerflow plugins</description>
     <url>http://www.example.com</url>
@@ -16,57 +21,44 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
-        <spring.boot.version>2.1.7.RELEASE</spring.boot.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring.boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
-            <version>${spring.boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
-            <version>${spring.boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>com.github.snakerflow</groupId>
             <artifactId>snaker-spring</artifactId>
-            <version>2.4.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.snakerflow</groupId>
             <artifactId>snaker-mybatis</artifactId>
-            <version>2.4.0</version>
         </dependency>
-
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.1.18</version>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.17</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.3.0</version>
+            <groupId>com.github.snakerflow</groupId>
+            <artifactId>snaker-core</artifactId>
         </dependency>
         <dependency>
             <groupId>commons-dbutils</groupId>
             <artifactId>commons-dbutils</artifactId>
-            <version>1.6</version>
         </dependency>
     </dependencies>
 
@@ -162,7 +154,6 @@
     </profiles>
 
 
-
     <build>
         <plugins>
             <plugin>
@@ -190,7 +181,8 @@
         <tag>master</tag>
         <url>git@github.com:snakerflow-starter/snakerflow-spring-boot-starter.git</url>
         <connection>scm:git:git@github.com:snakerflow-starter/snakerflow-spring-boot-starter.git</connection>
-        <developerConnection>scm:git:git@github.com:snakerflow-starter/snakerflow-spring-boot-starter.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:snakerflow-starter/snakerflow-spring-boot-starter.git
+        </developerConnection>
     </scm>
     <developers>
         <developer>

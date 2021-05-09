@@ -1,10 +1,12 @@
 /target
 /logs
-target
+target/
+**/target/
 !.mvn/wrapper/maven-wrapper.jar
 *.iws
 *.iml
 *.ipr
 /.idea/
+.idea
 /snakerflow-spring-boot-starter-example/target/
 /snakerflow-spring-boot-starter/target/
