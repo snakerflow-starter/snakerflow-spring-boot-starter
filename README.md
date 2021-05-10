@@ -45,8 +45,8 @@ mybatis-plus:
 - 2020.3.16 发布第一版starter 1.0.0到maven中央仓库
 - 2020.3.16 发布1.0.1 兼容Redis cacheManager 冲突
 - 2020.05.31 去掉无用依赖，快速使用体验
-- 2021.05.09 配置改成config文件形式，解决Mybaits-puls分页问题
-- 2021.05.10 SnakerFlow升级到最新版2.5.1
+- 2021.05.09 配置改成config文件形式，解决Mybaits-puls分页问题（1.0.4）
+- 2021.05.10 SnakerFlow升级到最新版2.5.1（1.0.5）
 
 ## 使用示例
 - 可以使用参考项目实例中的 SnakerEngineFacets
