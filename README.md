@@ -25,7 +25,7 @@
 <dependency>
   <groupId>com.github.snakerflow-starter</groupId>
   <artifactId>snakerflow-spring-boot-starter</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
 </dependency>
 ```
 新增配置项
@@ -46,6 +46,7 @@ mybatis-plus:
 - 2020.3.16 发布1.0.1 兼容Redis cacheManager 冲突
 - 2020.05.31 去掉无用依赖，快速使用体验
 - 2021.05.09 配置改成config文件形式，解决Mybaits-puls分页问题
+- 2021.05.10 SnakerFlow升级到最新版2.5.1
 
 ## 使用示例
 - 可以使用参考项目实例中的 SnakerEngineFacets
