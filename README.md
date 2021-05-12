@@ -25,7 +25,7 @@
 <dependency>
   <groupId>com.github.snakerflow-starter</groupId>
   <artifactId>snakerflow-spring-boot-starter</artifactId>
-  <version>1.0.5</version>
+  <version>1.0.6</version>
 </dependency>
 ```
 新增配置项
