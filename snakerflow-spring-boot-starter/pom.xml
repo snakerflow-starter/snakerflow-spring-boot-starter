@@ -4,14 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.github.snakerflow-starter</groupId>
-        <artifactId>snakerflow-spring-boot-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
-    </parent>
+    <groupId>com.github.snakerflow-starter</groupId>
     <artifactId>snakerflow-spring-boot-starter</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <name>snakerflow-spring-boot-starter</name>
     <description>snakerflow plugins</description>
     <url>http://www.example.com</url>
@@ -21,44 +16,60 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
+        <spring.boot.version>2.3.5.RELEASE</spring.boot.version>
+        <mysql.version>8.0.17</mysql.version>
+        <mybatis.plus.version>3.4.0</mybatis.plus.version>
+        <snaker.spring.version>2.5.1</snaker.spring.version>
+        <snaker.core.version>2.5.1</snaker.core.version>
+        <snaker.mybatis.version>2.4.0</snaker.mybatis.version>
+        <commons.dbutils.version>1.6</commons.dbutils.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
+            <version>${spring.boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>${spring.boot.version}</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis.plus.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.snakerflow</groupId>
             <artifactId>snaker-spring</artifactId>
+            <version>${snaker.spring.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.snakerflow</groupId>
             <artifactId>snaker-mybatis</artifactId>
+            <version>${snaker.mybatis.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.snakerflow</groupId>
             <artifactId>snaker-core</artifactId>
+            <version>${snaker.core.version}</version>
         </dependency>
         <dependency>
             <groupId>commons-dbutils</groupId>
             <artifactId>commons-dbutils</artifactId>
+            <version>${commons.dbutils.version}</version>
         </dependency>
     </dependencies>
 
